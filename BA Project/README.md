@@ -1,4 +1,4 @@
-# BA Term Project Report _Team4
+# BA Term Project
 **Project Duration**: Oct 2022 - Nov 2022<br><br>
 
 
