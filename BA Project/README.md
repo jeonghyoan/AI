@@ -3,20 +3,20 @@
 **Project Duration:** Oct 2022 - Nov 2022
 
 ---
-
-## Topic
-**Predicting the price of cabbage to help consumers make decisions.**
-
+## Overview
+**Predicting the price of cabbage** to help consumers make decisions, addressing the high price volatility caused by external factors such as weather.
 - Multi-linear regression models tend to be overfitted, which increases the generalization error for new data.
-- To address this issue, I utilized Ridge and Lasso regression techniques.
+- To address this issue, Ridge and Lasso regression were used
 
 ---
 
 ## Data
-The dataset includes the following variables:
-- Daily: Cabbage Price, Temperature, Rainfall
-- Monthly: Imports and Exports, Consumer Price Index
-- Yearly: Production per Area
+The dataset includes the following variables: 
+- Period : 2012.01.01 - 2022.11.11
+  - Daily: [Cabbage Price](https://www.kamis.or.kr/customer/main/main.do), [Temperature](https://data.kma.go.kr/stcs/grnd/grndTaList.do?pgmNo=70), [Rainfall](https://data.kma.go.kr/stcs/grnd/grndRnList.do?pgmNo=69)
+  - Monthly: [Imports and Exports](https://stat.kita.net/newMain.screen), [Consumer Price Index](https://kosis.kr/index/index.do)
+  - Yearly: [Production per Area](https://kosis.kr/index/index.do)
+
 
 ---
 
@@ -42,12 +42,12 @@ The dataset includes the following variables:
 - **Handling Missing Values:** Filled missing '생산량' values with the minimum production value.
 
 - **Seasonal Column Creation:** Changed 'Month' to represent seasons, renamed to '계절', and created sine and cosine transformations. (to reflect cyclical properties instead of one-hot encoding.)
-- 
+
 - **Final Cleanup:** Dropped unnecessary columns. (Year, Day, 지점, 계절)
 ---
 
-## Ridge & Lasso Regression: Cross Validation (Hyperparameter Tuning)
-For each model, we determined the hyperparameter (degree, alpha) that yielded the highest verification score.
+## Validation (Hyperparameter Tuning)
+For each model, the hyperparameter (degree, alpha) that yielded the highest validation score was determined.
 
 | Model  | Alpha          | Degree |
 |--------|----------------|-------|
@@ -57,14 +57,9 @@ For each model, we determined the hyperparameter (degree, alpha) that yielded th
 ---
 
 ## Evaluation
-We evaluated the performance on the test set using the best hyperparameters determined for each model.
+The performance on the test set was evaluated using the best hyperparameters determined for each model.
 
-| Metric     |      Lasso      |      Ridge      |
-|------------|------------------|------------------|
-| R² Score   |      0.9110      |      0.9096      |
-| MSE        | 2,160,094.5365   | 2,193,466.1081   |
-| RMSE       |    1,469.7260    |    1,481.0355    |
-| MAE        |     818.3509     |     823.4675     |
+![Image](https://github.com/user-attachments/assets/c907ad58-488c-44f1-ad63-b826dad02e77)
 
 
 ---
